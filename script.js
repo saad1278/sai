@@ -3,7 +3,6 @@ const apiKey = 'sk-P1uAtUqt-7TLvPQbulft6fTzx3PI7I8Qr_l35vUbW1T3BlbkFJX8QQyzXxIzp
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 async function sendMessageToAI(message) {
-    // Prepare the API request payload
     const requestBody = {
         model: "gpt-3.5-turbo",  // أو gpt-4 إذا كنت تستخدم إصدار GPT-4
         messages: [
@@ -14,7 +13,6 @@ async function sendMessageToAI(message) {
     };
 
     try {
-        // Send the request to OpenAI API
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
@@ -23,6 +21,27 @@ async function sendMessageToAI(message) {
             },
             body: JSON.stringify(requestBody)
         });
+
+        // تحقق من نجاح الاستجابة
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // التحقق من وجود البيانات الصحيحة في الاستجابة
+        if (data.choices && data.choices.length > 0) {
+            const aiReply = data.choices[0].message.content;
+            return aiReply;
+        } else {
+            return 'Sorry, no valid response from AI.';
+        }
+
+    } catch (error) {
+        console.error('Error communicating with AI:', error);
+        return 'Sorry, there was an error. Please try again.';
+    }
+}
 
         // Parse the response as JSON
         const data = await response.json();
