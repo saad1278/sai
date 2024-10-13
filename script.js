@@ -38,7 +38,7 @@ async function sendMessageToAI(message) {
         }
 
     } catch (error) {
-        console.error('Error communicating with AI:', error);
+        
         return 'Sorry, there was an error. Please try again.';
     }
 }
