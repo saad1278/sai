@@ -4,7 +4,7 @@ const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 async function sendMessageToAI(message) {
     const requestBody = {
-        model: "gpt-3.5-turbo",  // أو gpt-4 إذا كنت تستخدم إصدار GPT-4
+        model: "gpt-4",  // أو gpt-4 إذا كنت تستخدم إصدار GPT-4
         messages: [
             { role: "system", content: "You are a helpful assistant." },
             { role: "user", content: message }
