@@ -61,14 +61,16 @@ const inputField = document.querySelector('input');
 inputField.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
         const userMessage = inputField.value;
+
+        // انتظر رد الذكاء الاصطناعي باستخدام await
         const aiResponse = await sendMessageToAI(userMessage);
         
-        // Display the AI's response
+        // عرض الرد في واجهة الدردشة
         const chatBox = document.querySelector('.chat-box');
         chatBox.innerHTML += `<p>User: ${userMessage}</p>`;
         chatBox.innerHTML += `<p>AI: ${aiResponse}</p>`;
 
-        // Clear the input field
+        // مسح حقل الإدخال بعد إرسال الرسالة
         inputField.value = '';
     }
 });
