@@ -1,5 +1,5 @@
 // Define your API key and OpenAI API endpoint
-const apiKey = 'sk-P1uAtUqt-7TLvPQbulft6fTzx3PI7I8Qr_l35vUbW1T3BlbkFJX8QQyzXxIzpRH1Q2bppaOj1aB1C8GUffEwHzPT15QA';  // استبدل YOUR_API_KEY بمفتاح API الخاص بك
+const apiKey = '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';  // استبدل YOUR_API_KEY بمفتاح API الخاص بك
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 async function sendMessageToAI(message) {
